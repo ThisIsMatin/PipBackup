@@ -1,7 +1,7 @@
 <div align='center'>
   <br />
   <p>
-    <a href='https://github.com/ThisIsMatin/PipBackup'><img src='https://raw.githubusercontent.com/ThisIsMatin/PipBackup/master/images/logo.png' width='320' alt='Logo' /></a>
+    <a href='https://github.com/ThisIsMatin/PipBackup'><img src='https://raw.githubusercontent.com/ThisIsMatin/PipBackup/main/images/logo.png' width='320' alt='Logo' /></a>
   </p>
     <br/>
   <p>
