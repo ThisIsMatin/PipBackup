@@ -74,25 +74,34 @@ int main(int argc, char *argv[])
     string line;
     string output;
     int checker = 0;
+    bool isbackup = false;
     srand(time(0));
     int FileID = (rand() % (99999 - 11111)) + 11111;
     string filename = "backup_"+to_string(FileID)+".txt";
     ofstream BackupFile(filename);
     while (getline(iss, line))
     {
+        if(line.find("is not recognized") != string::npos){
+            cout<<"PIP is not installed in your system!";
+            isbackup = false;
+            break;   
+        }
         checker++;
         if(checker > 2 && line.length() > 3) {
             int pos = -1;
             while ((pos = line.find("  ")) != -1)
                 line.replace(pos, sizeof("  ") - 1, " ");
             BackupFile << FormatLine(line);
+            isbackup = true;
         }
     }
-    for (size_t i = 0; i < 30; i++)
-        cout<<'.';
-    cout<<endl;
-    cout<<"Your pip list was successfully backed up in (backup_"+filename+".txt)!"<<endl;
-    cout<<"To install the backup, just use this command : (python -m pip install -r backup_"+filename+".txt)"<<endl;
+    if(isbackup){
+        for (size_t i = 0; i < 30; i++)
+            cout<<'.';
+        cout<<endl;
+        cout<<"Your pip list was successfully backed up in (backup_"+filename+".txt)!"<<endl;
+        cout<<"To install the backup, just use this command : (python -m pip install -r backup_"+filename+".txt)"<<endl;
+    }
     BackupFile.close();
     getch();
     return 0;
