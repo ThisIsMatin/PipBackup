@@ -9,6 +9,8 @@
 
 using namespace std;
 
+size_t strpos(const string &haystack, const string &needle);
+
 string ssystem(const char *command) {
     char tmpname [L_tmpnam];
     tmpnam ( tmpname );
