@@ -4,22 +4,17 @@
 #include <cstdlib>
 #include <sstream>
 #include <fstream>
-#include <conio.h> 
+#include <conio.h>
 #include <ctime>
 #include <vector>
-
 using namespace std;
-
 size_t strpos(const string &haystack, const string &needle);
-
 size_t strpos(const string &haystack, const string &needle)
 {
     int sleng = haystack.length();
     int nleng = needle.length();
- 
     if (sleng==0 || nleng==0)
         return string::npos;
- 
     for(int i=0, j=0; i<sleng; j=0, i++ )
     {
         while (i+j<sleng && j<nleng && haystack[i+j]==needle[j])
@@ -29,7 +24,6 @@ size_t strpos(const string &haystack, const string &needle)
     }
     return string::npos;
 }
-
 string ssystem(const char *command) {
     char tmpname [L_tmpnam];
     tmpnam ( tmpname );
@@ -46,13 +40,11 @@ string ssystem(const char *command) {
     remove(tmpname);
     return result;
 }
-
 string FormatLine(string text)
 {
 int length = text.size();
 int x = 0;
 string fixed;
-
 while (x != length) {
         string letter = text.substr(x, 1);
         if (letter == " ") {
@@ -60,10 +52,8 @@ while (x != length) {
         fixed = fixed + letter;
         x = x + 1;
                     }
-
 return fixed;
 }
-
 int main(int argc, char *argv[])
 {
     cout <<"Backing up your pip modules..."<<endl;
@@ -84,7 +74,7 @@ int main(int argc, char *argv[])
         if(line.find("is not recognized") != string::npos){
             cout<<"PIP is not installed in your system!";
             isbackup = false;
-            break;   
+            break;
         }
         checker++;
         if(checker > 2 && line.length() > 3) {
